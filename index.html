@@ -3,83 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>爱心页面</title>
+    <title>爱心与名字</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
             min-height: 100vh;
-            background-color: #fce4ec;
+            background: linear-gradient(135deg, #fce4ec 0%, #e1bee7 50%, #fce4ec 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: "Arial", sans-serif;
+            font-family: "Microsoft Yahei", sans-serif;
+            padding: 20px;
         }
-
-        .title {
-            color: #e91e63;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
-
-        .heart-container {
+        .heart {
             position: relative;
             width: 200px;
-            height: 180px;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        .heart {
-            position: absolute;
-            width: 100px;
-            height: 160px;
-            background-color: #e91e63;
-            border-radius: 50px 50px 0 0;
-        }
-
-        .heart.left {
-            left: 50px;
+            height: 200px;
+            /* 替换为 GitHub Pages 上的图片地址 */
+            background-image: url("https://ZR.github.io/IMG_4275.jpeg");
+            background-size: cover; /* 图片自适应填充爱心 */
+            background-position: center; /* 图片居中显示 */
             transform: rotate(-45deg);
-            transform-origin: 0 100%;
+            animation: pulse 2.5s infinite ease-in-out;
+            box-shadow: 0 0 25px rgba(255, 64, 129, 0.4);
         }
-
-        .heart.right {
-            left: 50px;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: inherit;
+            background-size: inherit;
+            background-position: inherit;
+            border-radius: 50%;
         }
-
-        .message {
-            color: #333;
-            font-size: 1.2rem;
-            margin-top: 50px;
-            max-width: 80%;
-            text-align: center;
-            line-height: 1.6;
+        .heart::before {
+            top: -100px;
+            left: 0;
         }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.1); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.1); }
-            70% { transform: scale(1); }
+        .heart::after {
+            top: 0;
+            left: 100px;
+        }
+        .name {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            margin-top: 10px;
+        }
+        .music-player {
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+        audio {
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+        .small-heart {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: rotate(-45deg);
+            animation: float 6s infinite ease-in-out;
+        }
+        .small-heart::before,
+        .small-heart::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: inherit;
+            border-radius: 50%;
+        }
+        .small-heart::before { top: -7.5px; left: 0; }
+        .small-heart::after { top: 0; left: 7.5px; }
+        @keyframes pulse {
+            0%, 100% { transform: rotate(-45deg) scale(1); }
+            50% { transform: rotate(-45deg) scale(1.08); }
+        }
+        @keyframes float {
+            0%, 100% { transform: rotate(-45deg) translateY(0) opacity(0.7); }
+            50% { transform: rotate(-45deg) translateY(-15px) opacity(1); }
+        }
+        @media (max-width: 400px) {
+            .heart { width: 160px; height: 160px; }
+            .heart::before, .heart::after { width: 160px; height: 160px; }
+            .heart::before { top: -80px; }
+            .heart::after { left: 80px; }
+            .name { font-size: 2rem; }
+            .music-player { width: 260px; }
         }
     </style>
 </head>
 <body>
-    <h1 class="title">爱是永恒的主题</h1>
-    
-    <div class="heart-container">
-        <div class="heart left"></div>
-        <div class="heart right"></div>
+    <div class="small-heart" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="small-heart" style="top: 25%; right: 12%; animation-delay: 1s;"></div>
+    <div class="small-heart" style="bottom: 20%; left: 15%; animation-delay: 2s;"></div>
+    
+    <div class="main-content">
+        <div class="heart"></div>
+        <div class="name">石婧睿</div>
+        <div class="music-player">
+            <audio controls>
+                <source src="https://music.163.com/song/media/outer/url?id=29719264.mp3" type="audio/mpeg">
+                音乐无法播放？<a href="https://y.music.163.com/m/song?id=29719264" target="_blank">点击这里</a>
+             ></audio>
+        </div>
     </div>
-    
-    <p class="message">
-        每一颗爱心都代表着温暖与关怀<br>
-        愿这份善意传递给每一个人
-    </p>
 </body>
 </html>
