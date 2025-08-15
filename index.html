@@ -20,21 +20,19 @@
             font-family: "Microsoft Yahei", sans-serif;
             padding: 20px;
         }
-        /* 主容器：垂直排列爱心、名字、音乐 */
         .main-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px; /* 元素间间距 */
+            gap: 30px;
         }
-        /* 爱心样式（纯色，无照片） */
         .heart {
             position: relative;
             width: 200px;
             height: 200px;
-            background-color: #ff4081; /* 恢复爱心纯色背景 */
+            background-color: #ff4081;
             transform: rotate(-45deg);
-            animation: pulse 2.5s infinite ease-in-out; /* 跳动动画 */
+            animation: pulse 2.5s infinite ease-in-out;
             box-shadow: 0 0 25px rgba(255, 64, 129, 0.4);
         }
         .heart::before,
@@ -43,7 +41,7 @@
             position: absolute;
             width: 200px;
             height: 200px;
-            background-color: inherit; /* 继承主体爱心颜色 */
+            background-color: inherit;
             border-radius: 50%;
         }
         .heart::before {
@@ -54,14 +52,12 @@
             top: 0;
             left: 100px;
         }
-        /* 名字样式 */
         .name {
             font-size: 2.5rem;
             color: #d32f2f;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
             margin-top: 10px;
         }
-        /* 音乐播放器 */
         .music-player {
             width: 300px;
             background-color: rgba(255, 255, 255, 0.9);
@@ -75,7 +71,6 @@
             border: none;
             outline: none;
         }
-        /* 装饰小爱心 */
         .small-heart {
             position: absolute;
             width: 15px;
@@ -95,7 +90,6 @@
         }
         .small-heart::before { top: -7.5px; left: 0; }
         .small-heart::after { top: 0; left: 7.5px; }
-        /* 动画 */
         @keyframes pulse {
             0%, 100% { transform: rotate(-45deg) scale(1); }
             50% { transform: rotate(-45deg) scale(1.08); }
@@ -104,7 +98,6 @@
             0%, 100% { transform: rotate(-45deg) translateY(0) opacity(0.7); }
             50% { transform: rotate(-45deg) translateY(-15px) opacity(1); }
         }
-        /* 响应式适配 */
         @media (max-width: 400px) {
             .heart { width: 160px; height: 160px; }
             .heart::before, .heart::after { width: 160px; height: 160px; }
@@ -116,20 +109,18 @@
     </style>
 </head>
 <body>
-    <!-- 装饰小爱心 -->
     <div class="small-heart" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
     <div class="small-heart" style="top: 25%; right: 12%; animation-delay: 1s;"></div>
     <div class="small-heart" style="bottom: 20%; left: 15%; animation-delay: 2s;"></div>
-    
-    <!-- 主内容：爱心→名字→音乐 -->
+   
     <div class="main-content">
-        <div class="heart"></div> <!-- 纯色爱心 -->
-        <div class="name">石婧睿</div> <!-- 名字 -->
+        <div class="heart"></div>
+        <div class="name">石婧睿</div>
         <div class="music-player">
             <audio controls>
                 <source src="https://music.163.com/song/media/outer/url?id=30612793.mp3" type="audio/mpeg">
                 音乐无法播放？<a href="https://y.music.163.com/m/song?id=30612793" target="_blank">点击这里</a>
-             ></audio>
+            </audio>
         </div>
     </div>
 </body>
