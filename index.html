@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱心页面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #fce4ec;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Arial", sans-serif;
+        }
+
+        .title {
+            color: #e91e63;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 200px;
+            height: 180px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .heart {
+            position: absolute;
+            width: 100px;
+            height: 160px;
+            background-color: #e91e63;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .heart.left {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart.right {
+            left: 50px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.2rem;
+            margin-top: 50px;
+            max-width: 80%;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">爱是永恒的主题</h1>
+    
+    <div class="heart-container">
+        <div class="heart left"></div>
+        <div class="heart right"></div>
+    </div>
+    
+    <p class="message">
+        每一颗爱心都代表着温暖与关怀<br>
+        愿这份善意传递给每一个人
+    </p>
+</body>
+</html>
